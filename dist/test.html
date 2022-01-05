@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+    <link href="/dist/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div x-data="{atTop: true}">
+        <nav
+	class="p-4 w-full fixed"
+	:class="{ 'bg-white shadow-md' : !atTop }"
+	
+>
+	Top Nav goes here
+</nav>
+    
+
+    <div class=" h-screen bg-gray-600" @scroll.window="alert()">aksndba;sd</div>
+
+    <div class=" h-screen bg-gray-600">aksndba;sd</div>
+</div>
+</body>
+    <!--heade-->
+    <div class=" bg-white w-full h-20">
+        <header class=" h-full border-b border-gray-300 w-full flex p-8 items-center justify-between ">
+            <div class="flex items-center justify-start gap-x-4">
+                <div>
+                    <svg class=" h-12 w-12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <defs>
+                            <path
+                                d="M4.266 43.735C.614 40.152 0 30.066 0 24 0 17.934.614 7.848 4.266 4.265 7.751.845 18 0 24 0c6 0 16.249.845 19.734 4.265C47.386 7.848 48 17.934 48 24c0 6.066-.614 16.152-4.266 19.735C40.249 47.155 30 48 24 48c-6 0-16.249-.845-19.734-4.265z"
+                                id="a" />
+                        </defs>
+                        <g fill="none" fill-rule="evenodd">
+                            <use fill="#2C0069" xlink:href="#a" />
+                            <use fill="#6200EA" xlink:href="#a" />
+                        </g>
+                    </svg>
+                </div>
+    
+                <svg class="h-9  w-1">
+                    <line x1="0" y1="0" x2="00" y2="100" style="stroke:rgb(216, 214, 214);stroke-width:2" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+                <div class="">
+                    <!-- <div class="text-base font-medium text-gray-700">Create a Customer<br>🔑 </div> -->
+                    <div class="text-sm font-medium text-gray-500">jjayaraaj-test.chargebee.com</div>
+                </div>
+            </div>
+            
+            <div class="flex gap-4">
+                <button type="button" class="inline-flex items-center px-4 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Button text
+                  </button>
+                  <button type="button" class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Button text
+                  </button>
+            </div>
+        </header>
+        </div>
+        
+        <!--header-->
+</html>

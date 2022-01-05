@@ -1,0 +1,815 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="./js/scrollspy.js"></script>
+
+    <link href="/dist/css/style.css" rel="stylesheet">
+<style>
+ 
+</style>
+</head>
+
+<body class="" x-data="appMainFunc()">
+
+
+
+
+    <div class="h-full overflow-auto "   > 
+    <!--heade-->
+    <div class=" bg-white w-full h-20 fixed z-10">
+    <header class=" h-full border-b border-gray-300 w-full flex p-8 items-center justify-between ">
+        <div class="flex items-center justify-start gap-x-4">
+            <div>
+                <svg class=" h-12 w-12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <path
+                            d="M4.266 43.735C.614 40.152 0 30.066 0 24 0 17.934.614 7.848 4.266 4.265 7.751.845 18 0 24 0c6 0 16.249.845 19.734 4.265C47.386 7.848 48 17.934 48 24c0 6.066-.614 16.152-4.266 19.735C40.249 47.155 30 48 24 48c-6 0-16.249-.845-19.734-4.265z"
+                            id="a" />
+                    </defs>
+                    <g fill="none" fill-rule="evenodd">
+                        <use fill="#2C0069" xlink:href="#a" />
+                        <use fill="#6200EA" xlink:href="#a" />
+                    </g>
+                </svg>
+            </div>
+
+            <svg class="h-9  w-1">
+                <line x1="0" y1="0" x2="00" y2="100" style="stroke:rgb(216, 214, 214);stroke-width:2" />
+                Sorry, your browser does not support inline SVG.
+            </svg>
+            <div class="">
+                <!-- <div class="text-base font-medium text-gray-700">Create a Customer<br>🔑 </div> -->
+                <div class="text-sm font-medium text-gray-500">jjayaraaj-test.chargebee.com</div>
+            </div>
+        </div>
+        
+        <div class="flex gap-4">
+            <button type="button" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Dismiss
+              </button>
+              <button type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Create
+              </button>
+        </div>
+    </header>
+    </div>
+    
+    <!--header-->
+      
+    <!--content-->
+    <div class=" h-full  pb-40 " > 
+        
+        <div class=" h-40"></div>
+        <div  class="max-w-full mx-auto sm:px-6 lg:px-8 flex "  >
+        
+            <!--left-->
+            <div class=" w-2/12 " >
+                <div class="w-11/12 ml-auto "  >
+                 
+                    <div class="pr-7 fixed nav "   >  
+                      
+                        <!-- <a @click.prevent="goto('create_customer')" class=" flex md:p-2 text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3" 
+                        :class="{'bg-purple-50': createCustomerActive}">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900 rounded" > </span>
+                            <span>Customer Info</span>
+                        </a> 
+                        <a @click.prevent="goto('additional_contact')" class=" flex md:p-2 text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3"
+                        :class="{'bg-purple-50': additonalContactActive}">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900  rounded" > </span>
+                            <span>Additional Contact</span>
+                        </a> 
+                        <a href="#" class="flex md:p-2 text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900  rounded"> </span>
+                            <span>Essentials</span>
+                        </a> 
+                        <a href="#" class="flex md:p-2 text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900  rounded"> </span>
+                            <span>Billing Address</span>
+                        </a>     -->
+
+                        <a href="#create_customer" class=" flex md:p-2 md:pr-12   text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3" 
+                        :class="{'bg-purple-50': createCustomerActive}">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900 rounded" > </span>
+                            <span>Customer Info</span>
+                        </a> 
+                        <a href="#additional_contact" class=" flex md:p-2  md:pr-12 text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3"
+                        :class="{'bg-purple-50': additonalContactActive}">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900  rounded" > </span>
+                            <span>Additional Contact</span>
+                        </a> 
+                        <a href="#essentials" class="flex md:p-2 md:pr-12 text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900  rounded"> </span>
+                            <span>Essentials</span>
+                        </a> 
+                        <a href="#billing" class="flex md:p-2 md:pr-12 text-sm hover:bg-purple-50 hover:border border border-transparent hover:border-purple-100 rounded-lg items-center gap-x-3 text-gray-500 hover:text-purple-900 my-3">
+                            <span class="w-1.5 h-1.5 bg-gray-500 hover:bg-purple-900  rounded"> </span>
+                            <span>Billing Address</span>
+                        </a>    
+                       
+                    </div>
+                </div>
+            </div>
+    
+            <!--right-->
+            <div class="md:w-7/12 pl-8" >
+                <!--Create-->
+               <div id="create_customer" >
+                <div class=" text-3xl font-semibold text-purple-900 border-b ">
+                    Create a Customer
+                </div>
+    
+                <div class="pt-6" >
+                    <!--1-->
+                    <div class="w-2/4 pt-8">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Customer ID                    </label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <!-- Heroicon name: solid/mail -->
+                            <div class="border border-yellow-500 px-1 rounded">
+                                🔑
+                              </div>
+                          </div>
+                          <input type="email" name="email" id="email" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" placeholder="ID used to uniquely identify the customer">
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500" id="email-description">Customer ID will be auto generated if not provided.</p>
+                      </div>
+    
+                      <!--1-->
+                    <div class="w-2/4 pt-8">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email ID                    </label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+                          </div>
+                      </div>
+    
+                      <!--1-->
+                    <div class="w-2/4 pt-8">
+                        <label for="email" class="block text-sm font-medium text-gray-700">First Name                    </label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+                          </div>
+                      </div>
+    
+                      <!--1-->
+                    <div class="w-2/4 pt-8">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Last Name</label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+                          </div>
+                      </div>
+    
+                         <!--1-->
+                    <div class="w-2/4 pt-8">                    Company</label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+                          </div>
+                      </div>
+    
+                        <!--1-->
+                    <div class="w-2/4 pt-8">Phone</label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+                          </div>
+                      </div>
+    
+    
+    
+                </div>
+               </div>
+                <!--create end-->
+
+
+               <div class="md:h-24"></div>
+                <!--Additional contact-->
+               <div id="additional_contact" >
+                <div class=" text-3xl font-semibold text-purple-900 border-b ">
+                    Additional Contacts
+                </div>
+    
+                <div class="pt-6">
+                    <!--1-->
+                    <div class="w-full px-4 py-3 rounded-md bg-gray-100 border border-blue-200">
+                        <div class="flex items-center gap-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              <div class="text-blue-500 text-sm">Add more contacts</div>
+                        </div>
+                       
+                        
+                      </div>
+                      <p class="mt-2 text-xs text-gray-500" id="email-description">Add team members to whom you’d like to send invoice, payment, and subscription-related emails.</p>
+    
+    
+                </div>
+               </div>
+                <!--Additional contact-->
+
+
+                <div class="md:h-24"></div>
+                <!--Essentials contact-->
+               <div id="essentials" >
+                <div class=" text-3xl font-semibold text-purple-900 border-b ">
+                    Essentials
+                </div>
+    
+                <div class="pt-6">
+                     <!--1-->
+                    <!-- This example requires Tailwind CSS v2.0+ -->
+<div class="w-2/4 pt-8">
+    <label id="listbox-label" class="block text-sm font-medium text-gray-700">
+        Language
+    </label>
+    <div class="mt-1 relative">
+      <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+        <span class="block truncate">
+          English
+        </span>
+        <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+          <!-- Heroicon name: solid/selector -->
+          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </button>
+  
+      <!--
+        Select popover, show/hide based on select state.
+  
+        Entering: ""
+          From: ""
+          To: ""
+        Leaving: "transition ease-in duration-100"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+      <ul class="hidden absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+        <!--
+          Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+  
+          Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
+        -->
+        <template x-for="language in languages" :key="language.id">
+        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white hover:cursor-pointer"  id="listbox-option-0" role="option" @mouseenter="highlightSelect = true">
+          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+          <span x-text="language.lang" class="font-normal block truncate">
+            
+          </span>
+  
+          <!--
+            Checkmark, only display for selected option.
+  
+            Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+          -->
+          <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+            <!-- Heroicon name: solid/check -->
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </li>
+    </template>
+  
+        <!-- More items... -->
+      </ul>
+    </div>
+   
+
+  </div>
+  <p class="mt-2 text-xs text-gray-500" id="email-description">Add team members to whom you’d like to send invoice, payment, and subscription-related emails.</p>
+  
+      <!--1 ends-->
+
+       <!--2-->
+                    <!-- This example requires Tailwind CSS v2.0+ -->
+<div class="w-2/4 pt-8">
+    <label id="listbox-label" class="block text-sm font-medium text-gray-700">
+        Preferred currency
+
+    </label>
+    <div class="mt-1 relative">
+      <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+        <span class="block truncate">
+            Preferred currency
+        </span>
+        <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+          <!-- Heroicon name: solid/selector -->
+          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </button>
+  
+      <!--
+        Select popover, show/hide based on select state.
+  
+        Entering: ""
+          From: ""
+          To: ""
+        Leaving: "transition ease-in duration-100"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+      <ul class="hidden absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+        <!--
+          Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+  
+          Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
+        -->
+        <template x-for="language in languages" :key="language.id">
+        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white hover:cursor-pointer"  id="listbox-option-0" role="option" @mouseenter="highlightSelect = true">
+          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+          <span x-text="language.lang" class="font-normal block truncate">
+            
+          </span>
+  
+          <!--
+            Checkmark, only display for selected option.
+  
+            Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+          -->
+          <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+            <!-- Heroicon name: solid/check -->
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </li>
+    </template>
+  
+        <!-- More items... -->
+      </ul>
+    </div>
+   
+
+  </div>
+  <p class="mt-2 text-xs text-gray-500" id="email-description">Chargebee will use this currency to determine the gateway to use for payments made by this customer.</p>
+  
+      <!--2 ends-->
+
+      <!-- 3 starts -->
+      <fieldset class="space-y-5">
+        <legend class="sr-only">Notifications</legend>
+        <div class="relative flex items-start">
+          <div class="flex items-center h-5">
+            <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+          </div>
+          <div class="ml-3 text-sm">
+            <label for="comments" class="font-medium text-gray-700">This customer is tax exempt</label>
+          </div>
+        </div>
+       
+       
+      </fieldset>
+        <!-- 3 ends -->
+
+        <!--4 starts-->
+        <div class="py-6">
+            <label class="text-base font-medium text-gray-900">Auto-collection</label>
+            <p class="text-sm leading-5 text-gray-500">Auto-collection lets you automatically attempt to charge a customer’s payment method whenever an invoice is created.</p>
+            <fieldset class="mt-4">
+              <legend class="sr-only">Notification method</legend>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <input id="on" name="notification-method" type="radio" checked class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  <label for="on" class="ml-3 block text-sm font-medium text-gray-700">
+                    On
+                  </label>
+                </div>
+          
+                <div class="flex items-center">
+                  <input id="off" name="notification-method" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  <label for="off" class="ml-3 block text-sm font-medium text-gray-700">
+                    Off
+                  </label>
+                </div>
+          
+              
+              </div>
+            </fieldset>
+          </div>
+        <!-- 4 ends-->
+
+
+               </div>
+                <!--Essentials contact-->
+    
+    
+                </div>  
+                <!--Essentials ends-->
+
+
+                <div class="md:h-24"></div>
+                <!--billing contact-->
+               <div id="billing" >
+                <div class=" text-3xl font-semibold text-purple-900 border-b ">
+                    Billing Address
+                </div>
+    
+                <div class="pt-6">
+                     <!--1-->
+                    <!-- This example requires Tailwind CSS v2.0+ -->
+<div class="w-2/4 pt-8">
+    <label id="listbox-label" class="block text-sm font-medium text-gray-700">
+        Country
+    </label>
+    <div class="mt-1 relative">
+      <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+        <span class="block truncate">
+          Select Country
+        </span>
+        <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+          <!-- Heroicon name: solid/selector -->
+          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </button>
+  
+      <!--
+        Select popover, show/hide based on select state.
+  
+        Entering: ""
+          From: ""
+          To: ""
+        Leaving: "transition ease-in duration-100"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+      <ul class="hidden absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+        <!--
+          Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+  
+          Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
+        -->
+        <template x-for="language in languages" :key="language.id">
+        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white hover:cursor-pointer"  id="listbox-option-0" role="option" @mouseenter="highlightSelect = true">
+          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+          <span x-text="language.lang" class="font-normal block truncate">
+            
+          </span>
+  
+          <!--
+            Checkmark, only display for selected option.
+  
+            Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+          -->
+          <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+            <!-- Heroicon name: solid/check -->
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </li>
+    </template>
+  
+        <!-- More items... -->
+      </ul>
+    </div>
+   
+
+  </div>
+  
+      <!--1 ends-->
+
+       <!--2-->
+       <div class="w-2/4 pt-8">
+        <label for="email" class="block text-sm font-medium text-gray-700">First Name                  </label>
+        <div class="mt-1">
+            <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+          </div>
+      </div>
+  
+      <!--2 ends-->
+
+      <!-- 3 starts -->
+      <div class="w-2/4 pt-8">
+        <label for="email" class="block text-sm font-medium text-gray-700">Last Name                  </label>
+        <div class="mt-1">
+            <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+          </div>
+      </div>
+        <!-- 3 ends -->
+
+        <!--4 starts-->
+        <div class="w-2/4 pt-8">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email ID            </label>
+            <div class="mt-1">
+                <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+              </div>
+          </div>
+        <!-- 4 ends-->
+
+         <!--5 starts-->
+         <div class="w-2/4 pt-8">
+            <label for="company" class="block text-sm font-medium text-gray-700">Company           </label>
+            <div class="mt-1">
+                <input type="text" name="company" id="company" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+              </div>
+          </div>
+        <!-- 5 ends-->
+
+        <!--6 starts-->
+        <div class="w-2/4 pt-8">
+            <label for="Phone" class="block text-sm font-medium text-gray-700">Phone           </label>
+            <div class="mt-1">
+                <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+              </div>
+          </div>
+        <!-- 6 ends-->
+
+         <!--7 starts-->
+         <div class="w-2/4 pt-8">
+            <label for="Phone" class="block text-sm font-medium text-gray-700">Address line 1            </label>
+            <div class="mt-1">
+                <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+              </div>
+          </div>
+        <!-- 7 ends-->
+
+         <!--8 starts-->
+         <div class="w-2/4 pt-8">
+            <label for="Phone" class="block text-sm font-medium text-gray-700">Address line 2           </label>
+            <div class="mt-1">
+                <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+              </div>
+          </div>
+        <!-- 8 ends-->
+
+         <!--9 starts-->
+         <div class="w-2/4 pt-8">
+          <label for="Phone" class="block text-sm font-medium text-gray-700">Address line 3         </label>
+          <div class="mt-1">
+              <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 9 ends-->
+
+          <!--10 starts-->
+          <div class="w-2/4 pt-8">
+            <label for="Phone" class="block text-sm font-medium text-gray-700">City       </label>
+            <div class="mt-1">
+                <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+              </div>
+          </div>
+        <!-- 10 ends-->
+
+        <!--11 starts-->
+        <div class="w-2/4 pt-8">
+          <label for="Phone" class="block text-sm font-medium text-gray-700">Postal/Zip code
+          </label>
+          <div class="mt-1">
+              <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 11 ends-->
+
+
+               </div>
+              
+    
+    
+                </div>  
+                <!--Essentials ends-->
+    
+        </div>
+    </div>
+ 
+    <!--content-->
+    </div>
+
+    <!--content-ends-->
+
+</div>
+
+<!--add contact modal-->
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="md:flex md:items-center md:justify-between">
+          <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+            Add an additional contact
+          </h3>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+
+
+        <div>
+          <!--4 starts-->
+        <div class=" pt-4">
+          <label for="email" class="block text-sm font-medium text-gray-700">ID            </label>
+          <div class="mt-1">
+              <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 4 ends-->
+
+       <!--5 starts-->
+       <div class=" pt-4">
+          <label for="company" class="block text-sm font-medium text-gray-700">First Name           </label>
+          <div class="mt-1">
+              <input type="text" name="company" id="company" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 5 ends-->
+
+      <!--6 starts-->
+      <div class="pt-4">
+          <label for="Phone" class="block text-sm font-medium text-gray-700">Last Name           </label>
+          <div class="mt-1">
+              <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 6 ends-->
+
+      <!--6 starts-->
+      <div class="pt-4">
+        <label for="Phone" class="block text-sm font-medium text-gray-700">Email ID           </label>
+        <div class="mt-1">
+            <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+          </div>
+      </div>
+    <!-- 6 ends-->
+
+       <!--6 starts-->
+       <div class="pt-4">
+        <label for="Phone" class="block text-sm font-medium text-gray-700">Tag  </label>
+        <div class="mt-1">
+            <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+          </div>
+      </div>
+    <!-- 6 ends-->
+
+     <!--6 starts-->
+     <div class="pt-4">
+      <label for="Phone" class="block text-sm font-medium text-gray-700">Phone  </label>
+      <div class="mt-1">
+          <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+        </div>
+    </div>
+  <!-- 6 ends-->
+
+  <!--7-->
+    <div class="pt-4">
+      <!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<fieldset class="space-y-5">
+  <legend class="sr-only">Notifications</legend>
+  <div class="relative flex items-start">
+    <div class="flex items-center h-5">
+      <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+    </div>
+    <div class="ml-3 text-sm">
+      <label for="comments" class="font-medium text-gray-700">Billing emails</label>
+      <p id="comments-description" class="text-gray-500">If checked, this contact will receive Invoice and Payment related emails</p>
+    </div>
+  </div>
+  <div class="relative flex items-start">
+    <div class="flex items-center h-5">
+      <input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+    </div>
+    <div class="ml-3 text-sm">
+      <label for="candidates" class="font-medium text-gray-700">Account emails</label>
+      <p id="candidates-description" class="text-gray-500">If checked, this contact will receive Invoice and Payment related emails</p>
+    </div>
+  </div>
+
+</fieldset>
+
+    </div>
+  <!--7 ends-->
+
+        </div>
+
+
+       
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-x-4">
+        <button type="button" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Add
+        </button>
+        <button type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--add contact modal ends-->
+
+<script>
+ 
+    function appMainFunc() {
+        return {
+            scrollAtTop: true,
+            allmenu: false,
+            createCustomerActive: false,
+            additonalContactActive: false,
+            highlightSelect: false,
+            languages: [
+                {id: 'en', lang:'English' },
+                {id: 'fr', lang:'French' }
+            ],
+
+            init() {
+              //this.scrollFunc()
+              var menu = document.querySelector('.nav');
+scrollSpy(menu, 5000);
+              
+            },
+
+            scrollFunc() {
+                const el = document.querySelector('#additional_contact');
+              console.log(el.scrollLeft, el.scrollTop);
+               
+            },
+            goto(section) {
+       
+                this.scrollAtTop = false;  
+                
+                this.createCustomerActive= false;
+                this.additonalContactActive =false;
+
+                switch(section){
+                    case "create_customer":
+                        console.log('create_customer')
+                        this.createCustomerActive = true;
+                        break;
+                    case "additional_contact":
+                        this.additonalContactActive = true;
+                    console.log('additional_contact')
+                        break;
+                        default:
+                        console.log('create_customer')
+                }
+                
+                
+              //  console.log(this.create_customer)
+                document.querySelector('#'+section).scrollIntoView({behavior: 'smooth'});
+               
+               
+            }
+        }
+    }
+
+    let lastKnownScrollPosition = 0;
+    const cr = document.querySelector("#create_customer");
+    console.log(cr)
+    cr.scrollIntoView();
+    cr.addEventListener('scroll', function(e) {
+      lastKnownScrollPosition = window.scrollY;
+                console.log(lastKnownScrollPosition)
+              })
+</script>
+
+</body>
+
+</html>
