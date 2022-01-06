@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/dist/css/style.css" rel="stylesheet">
+
+</head>
+<body class="">
+ 
+ <!--footer-->
+<div class="bg-gray-50  fixed z-50 w-screen bottom-0 px-8 py-4 flex justify-end">
+    <div class="flex gap-4">
+        <button type="button" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Dismiss
+          </button>
+          <button type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Create
+          </button>
+    </div>
+</div>
+<!--heade-->
+ <div class=" bg-white w-full h-20  shadow-md">
+    <header class=" h-full border-b border-gray-300 w-full flex p-8 items-center justify-between ">
+        <div class="flex items-center justify-start gap-x-4">
+            <div>
+                <svg class=" h-12 w-12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <path
+                            d="M4.266 43.735C.614 40.152 0 30.066 0 24 0 17.934.614 7.848 4.266 4.265 7.751.845 18 0 24 0c6 0 16.249.845 19.734 4.265C47.386 7.848 48 17.934 48 24c0 6.066-.614 16.152-4.266 19.735C40.249 47.155 30 48 24 48c-6 0-16.249-.845-19.734-4.265z"
+                            id="a" />
+                    </defs>
+                    <g fill="none" fill-rule="evenodd">
+                        <use fill="#2C0069" xlink:href="#a" />
+                        <use fill="#6200EA" xlink:href="#a" />
+                    </g>
+                </svg>
+            </div>
+
+        
+            <div class="">
+                <!-- <div class="text-base font-medium text-gray-700">Create a Customer<br>🔑 </div> -->
+                <div class="text-lg  text-black font-semibold">Create Customer</div>
+            </div>
+        </div>
+        
+       
+    </header>
+    </div>
+
+<div class=" h-10"></div>
+<div class="max-w-7xl  sm:px-6 lg:px-8">   
+<div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+    <aside class="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
+      <nav class="space-y-1">
+        <!-- Current: "bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white", Default: "text-gray-900 hover:text-gray-900 hover:bg-gray-50" -->
+        <a href="#" class="bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white group rounded-md px-3 py-2 flex items-center text-sm font-medium" aria-current="page">
+          <!--
+            Heroicon name: outline/user-circle
+  
+            Current: "text-indigo-500 group-hover:text-indigo-500", Default: "text-gray-400 group-hover:text-gray-500"
+          -->
+          <svg class="text-indigo-500 group-hover:text-indigo-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="truncate">
+            Customer Info
+          </span>
+        </a>
+  
+        <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
+          <!-- Heroicon name: outline/key -->
+          <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+          </svg>
+          <span class="truncate">
+            Additional Contact
+          </span>
+        </a>
+  
+        <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
+          <!-- Heroicon name: outline/credit-card -->
+          <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+          </svg>
+          <span class="truncate">
+            Essentials
+          </span>
+        </a>
+  
+        <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
+          <!-- Heroicon name: outline/user-group -->
+          <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span class="truncate">
+            Billing Address
+          </span>
+        </a>
+  
+       
+      </nav>
+    </aside>
+  
+    <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+     
+  
+      <form action="#" method="POST">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+            <div>
+              <h3 class="text-lg leading-6 font-medium text-gray-900">Create Customer</h3>
+              <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
+            </div>
+  
+            <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6 sm:col-span-4">
+                    <label for="customer-id" class="block text-sm font-medium text-gray-700">Customer ID</label>
+                    <input type="text" name="customer-id" id="customer-id" autocomplete="customerID" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <p class="mt-2 text-xs text-gray-500" id="email-description">Customer ID will be auto generated if not provided.</p>
+                </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+  
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+  
+              <div class="col-span-6 sm:col-span-4">
+                <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Company Name</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Phone</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+  
+             
+  
+            
+  
+  
+             
+            </div>
+          </div>
+          
+        </div>
+      </form>
+
+      <form action="#" method="POST">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+            <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+              <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Additional Contact</h3>
+                <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
+              </div>
+    
+              <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-6 sm:col-span-4">
+                      <div class="mt-1 flex items-center">
+               
+                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-500 bg-gray-50 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <!-- Heroicon name: solid/mail -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    
+                    
+                  Add more contacts
+                  </button>
+              </div>
+                  </div>
+               
+    
+    
+               
+              </div>
+              <p class="text-xs text-gray-500" id="email-description">Add team members to whom you’d like to send invoice, payment, and subscription-related emails.</p>
+
+            </div>
+            
+          </div>
+      </form>
+
+      <form action="#" method="POST">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+            <div>
+              <h3 class="text-lg leading-6 font-medium text-gray-900">Essentials</h3>
+              <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
+            </div>
+  
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-4">
+                <div>
+                    <label id="listbox-label" class="block text-sm font-medium text-gray-700">
+                        Language
+                    </label>
+                    <div class="mt-1 relative ">
+                      <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+                        <span class="block truncate">
+                          English
+                        </span>
+                        <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                          <!-- Heroicon name: solid/selector -->
+                          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </span>
+                      </button>
+                  
+                      <!--
+                        Select popover, show/hide based on select state.
+                  
+                        Entering: ""
+                          From: ""
+                          To: ""
+                        Leaving: "transition ease-in duration-100"
+                          From: "opacity-100"
+                          To: "opacity-0"
+                      -->
+                      <ul class="hidden absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+                        <!--
+                          Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                  
+                          Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
+                        -->
+                        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9" id="listbox-option-0" role="option">
+                          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+                          <span class="font-normal block truncate">
+                            Wade Cooper
+                          </span>
+                  
+                          <!--
+                            Checkmark, only display for selected option.
+                  
+                            Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                          -->
+                          <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+                            <!-- Heroicon name: solid/check -->
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                          </span>
+                        </li>
+                  
+                        <!-- More items... -->
+                      </ul>
+                    </div>
+                    <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
+                  </div>      
+             
+                </div>
+
+             
+                
+  
+              <div class="col-span-6 sm:col-span-4">
+                <div>
+                    <label id="listbox-label" class="block text-sm font-medium text-gray-700">
+                        Preferred currency
+                    </label>
+                    <div class="mt-1 relative ">
+                      <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+                        <span class="block truncate">
+                            Preferred currency
+                        </span>
+                        <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                          <!-- Heroicon name: solid/selector -->
+                          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </span>
+                      </button>
+                  
+                      <!--
+                        Select popover, show/hide based on select state.
+                  
+                        Entering: ""
+                          From: ""
+                          To: ""
+                        Leaving: "transition ease-in duration-100"
+                          From: "opacity-100"
+                          To: "opacity-0"
+                      -->
+                      <ul class="hidden absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+                        <!--
+                          Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                  
+                          Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
+                        -->
+                        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9" id="listbox-option-0" role="option">
+                          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+                          <span class="font-normal block truncate">
+                            Wade Cooper
+                          </span>
+                  
+                          <!--
+                            Checkmark, only display for selected option.
+                  
+                            Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                          -->
+                          <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+                            <!-- Heroicon name: solid/check -->
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                          </span>
+                        </li>
+                  
+                        <!-- More items... -->
+                      </ul>
+                    </div>
+                    <p class="mt-1 text-sm text-gray-500">Chargebee will use this currency to determine the gateway to use for payments made by this customer.</p>
+                  </div>                    </div>
+  
+              <div class="col-span-6 sm:col-span-4">
+                <fieldset class="space-y-5">
+                    <legend class="sr-only">Notifications</legend>
+                    <div class="relative flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="comments" class="font-medium text-gray-700">This customer is tax exempt</label>
+                      </div>
+                    </div>
+                   
+                   
+                  </fieldset>              </div>
+  
+              <div class="col-span-6  sm:col-span-6">
+                <label for="country" class="block text-sm font-medium text-gray-700">Auto-collection</label>
+                <p class="text-sm leading-5 text-gray-500">Auto-collection lets you automatically attempt to charge a customer’s payment method whenever an invoice is created.</p>
+            <fieldset class="mt-4">
+              <legend class="sr-only">Notification method</legend>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <input id="on" name="notification-method" type="radio" checked class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  <label for="on" class="ml-3 block text-sm font-medium text-gray-700">
+                    On
+                  </label>
+                </div>
+          
+                <div class="flex items-center">
+                  <input id="off" name="notification-method" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  <label for="off" class="ml-3 block text-sm font-medium text-gray-700">
+                    Off
+                  </label>
+                </div>
+          
+              
+              </div>
+            </fieldset>
+              </div>
+  
+            
+            </div>
+          </div>
+      
+        </div>
+      </form>
+  
+      <form action="#" method="POST">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+            <div>
+              <h3 class="text-lg leading-6 font-medium text-gray-900">Billing Address</h3>
+              <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
+            </div>
+  
+            <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6 sm:col-span-4">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                    <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option>United States</option>
+                      <option>Canada</option>
+                      <option>Mexico</option>
+                    </select>
+                  </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+  
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+  
+              <div class="col-span-6 sm:col-span-4">
+                <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <label for="email-address" class="block text-sm font-medium text-gray-700">Company</label>
+                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <label for="email-address" class="block text-sm font-medium text-gray-700">Phone</label>
+                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+  
+             
+  
+              <div class="col-span-6 sm:col-span-4">
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Address line 1</label>
+                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Address line 2</label>
+                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+              
+
+              <div class="col-span-6 sm:col-span-4">
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Address line 3</label>
+                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+
+             
+  
+             
+            </div>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="submit" class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+
+
+</body>
+</html>

@@ -44,4 +44,7 @@
         @apply bg-purple-50 border border-purple-100 text-purple-900 
       }
       
+      [x-cloak] {
+        display: none;
+    }
 }
