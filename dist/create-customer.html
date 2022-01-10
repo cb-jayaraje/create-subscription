@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="/dist/css/style.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
 
 </head>
-<body class="">
+<body class="" x-data="appMainFunc()">
  
  <!--footer-->
 <div class="bg-gray-50  fixed z-50 w-screen bottom-0 px-8 py-4 flex justify-end">
@@ -22,28 +24,22 @@
     </div>
 </div>
 <!--heade-->
- <div class=" bg-white w-full h-20  shadow-md">
+ <div class=" bg-white w-full h-20  ">
     <header class=" h-full border-b border-gray-300 w-full flex p-8 items-center justify-between ">
         <div class="flex items-center justify-start gap-x-4">
-            <div>
-                <svg class=" h-12 w-12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <defs>
-                        <path
-                            d="M4.266 43.735C.614 40.152 0 30.066 0 24 0 17.934.614 7.848 4.266 4.265 7.751.845 18 0 24 0c6 0 16.249.845 19.734 4.265C47.386 7.848 48 17.934 48 24c0 6.066-.614 16.152-4.266 19.735C40.249 47.155 30 48 24 48c-6 0-16.249-.845-19.734-4.265z"
-                            id="a" />
-                    </defs>
-                    <g fill="none" fill-rule="evenodd">
-                        <use fill="#2C0069" xlink:href="#a" />
-                        <use fill="#6200EA" xlink:href="#a" />
-                    </g>
-                </svg>
-            </div>
+            
 
         
             <div class="">
                 <!-- <div class="text-base font-medium text-gray-700">Create a Customer<br>🔑 </div> -->
                 <div class="text-lg  text-black font-semibold">Create Customer</div>
             </div>
+        </div>
+
+        <div class="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:bg-gray-400 hover:text-white rounded cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </div>
         
        
@@ -53,10 +49,10 @@
 <div class=" h-10"></div>
 <div class="max-w-7xl  sm:px-6 lg:px-8">   
 <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
-    <aside class="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
-      <nav class="space-y-1">
+    <aside class="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3 " @scroll.window="atTop = (window.pageYOffset > 60) ? false : true">
+      <nav class="space-y-1 nav " :class= "{'fixed top-0' : !atTop}">
         <!-- Current: "bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white", Default: "text-gray-900 hover:text-gray-900 hover:bg-gray-50" -->
-        <a href="#" class="bg-gray-50 text-indigo-700 hover:text-indigo-700 hover:bg-white group rounded-md px-3 py-2 flex items-center text-sm font-medium" aria-current="page">
+        <a href="#create_customer" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium" aria-current="page">
           <!--
             Heroicon name: outline/user-circle
   
@@ -70,7 +66,7 @@
           </span>
         </a>
   
-        <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
+        <a href="#additional_contact" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
           <!-- Heroicon name: outline/key -->
           <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
@@ -80,7 +76,7 @@
           </span>
         </a>
   
-        <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
+        <a href="#essentials" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
           <!-- Heroicon name: outline/credit-card -->
           <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
@@ -90,7 +86,7 @@
           </span>
         </a>
   
-        <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
+        <a href="#billing_address" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
           <!-- Heroicon name: outline/user-group -->
           <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -107,7 +103,7 @@
     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
      
   
-      <form action="#" method="POST">
+      <form action="#" method="POST" id="create_customer">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
           <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
             <div>
@@ -158,19 +154,49 @@
         </div>
       </form>
 
-      <form action="#" method="POST">
+      <form action="#" method="POST" id="additional_contact">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
             <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
               <div>
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Additional Contact</h3>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 ">Additional Contact</h3>
                 <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
               </div>
-    
+
+              <div x-show="addContacts.length > 0 ">
+                <template x-for="addContact in addContacts" :key="addContact.id">
+                  <div class="flex justify-between" >
+                    <div>
+                      <h4 x-text="addContact.name"></h4>
+                      <p class="text-xs text-gray-400" x-text="addContact.email">Email ID</p>
+                    </div>
+                  
+  
+                  <div class="relative inline-block text-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" @click="additionalPop = !additionalPop" class="h-6 w-6 text-gray-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                    </svg>
+  
+                    <div @click.away="additionalPop=false" x-show="additionalPop == true" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                      <div class="py-1" role="none">
+                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Edit</a>
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Delete</a>
+                        
+                      </div>
+                    </div>
+  
+  
+                  </div>
+                  </div>
+                  </template>
+                  
+              </div>
+
               <div class="grid grid-cols-6 gap-6">
                   <div class="col-span-6 sm:col-span-4">
                       <div class="mt-1 flex items-center">
                
-                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-500 bg-gray-50 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button type="button" @click="contactModal = true" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-500 bg-gray-50 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     <!-- Heroicon name: solid/mail -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -193,7 +219,7 @@
           </div>
       </form>
 
-      <form action="#" method="POST">
+      <form action="#" method="POST" id="essentials">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
           <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
             <div>
@@ -208,8 +234,8 @@
                         Language
                     </label>
                     <div class="mt-1 relative ">
-                      <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-                        <span class="block truncate">
+                      <button @click="toggleLangVisibility" type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+                        <span class="block truncate" x-text="langaugeOptionSelected">
                           English
                         </span>
                         <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -230,16 +256,19 @@
                           From: "opacity-100"
                           To: "opacity-0"
                       -->
-                      <ul class="hidden absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+                      <ul x-show="languageOptions === true" @click.away="languageOptions = false" class=" absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
                         <!--
                           Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
                   
                           Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
                         -->
-                        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9" id="listbox-option-0" role="option">
+                        <template x-for="language in languages" :key="language.id">
+                        <li @click="onSelectLang(language.lang)"  class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white hover:cursor-pointer"  
+                   
+                        id="listbox-option-0" role="option" @mouseenter="highlightSelect = true">
                           <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-                          <span class="font-normal block truncate">
-                            Wade Cooper
+                          <span x-text="language.lang" class="font-normal block truncate">
+                            
                           </span>
                   
                           <!--
@@ -247,13 +276,14 @@
                   
                             Highlighted: "text-white", Not Highlighted: "text-indigo-600"
                           -->
-                          <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+                          <span x-show="language.lang === langaugeOptionSelected" class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
                             <!-- Heroicon name: solid/check -->
                             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
                           </span>
                         </li>
+                    </template>
                   
                         <!-- More items... -->
                       </ul>
@@ -272,8 +302,10 @@
                         Preferred currency
                     </label>
                     <div class="mt-1 relative ">
-                      <button type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-                        <span class="block truncate">
+                      <button 
+                      @click="toggleCurrencyVisibility"
+                      type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+                        <span class="block truncate" x-text="currencyOptionSelected">
                             Preferred currency
                         </span>
                         <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -294,31 +326,38 @@
                           From: "opacity-100"
                           To: "opacity-0"
                       -->
-                      <ul class="hidden absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+                      <ul 
+                      x-show="currencyOptions === true" @click.away="currencyOptions = false"
+                      class=" absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
                         <!--
                           Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                          
                   
                           Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
                         -->
-                        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9" id="listbox-option-0" role="option">
-                          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-                          <span class="font-normal block truncate">
-                            Wade Cooper
-                          </span>
-                  
-                          <!--
-                            Checkmark, only display for selected option.
-                  
-                            Highlighted: "text-white", Not Highlighted: "text-indigo-600"
-                          -->
-                          <span class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
-                            <!-- Heroicon name: solid/check -->
-                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                          </span>
-                        </li>
-                  
+                        
+                        <template x-for="currency in currencys" :key="currency.id">
+                          <li @click="onSelectCurrency(currency.currency)"  class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white hover:cursor-pointer"  
+                     
+                          id="listbox-option-0" role="option" @mouseenter="highlightSelect = true">
+                            <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+                            <span x-text="currency.currency" class="font-normal block truncate">
+                              
+                            </span>
+                    
+                            <!--
+                              Checkmark, only display for selected option.
+                    
+                              Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                            -->
+                            <span x-show="currency.currency === currencyOptionSelected" class="text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4">
+                              <!-- Heroicon name: solid/check -->
+                              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                              </svg>
+                            </span>
+                          </li>
+                      </template>
                         <!-- More items... -->
                       </ul>
                     </div>
@@ -372,7 +411,7 @@
         </div>
       </form>
   
-      <form action="#" method="POST">
+      <form action="#" method="POST" id="billing_address">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
           <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
             <div>
@@ -433,24 +472,273 @@
                 <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
               </div>
 
+              <div class="col-span-6 sm:col-span-3">
+                <label for="first-name" class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+  
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Postal/Zip code</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              </div>
+
              
   
              
             </div>
           </div>
-          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-            <button type="submit" class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Save
-            </button>
-          </div>
+          
         </div>
       </form>
+
+      <div class=" h-32"></div>
     </div>
   </div>
   
 </div>
 
+<!--add contact modal-->
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="fixed z-30 inset-0 overflow-y-auto" aria-labelledby="modal-title"  x-show="contactModal" role="dialog" aria-modal="true" 
+x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+>
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0" 
+  
+>
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" ></div>
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full " 
+    
+    @click.away="closeContactModal">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
+        <div class="md:flex md:items-center md:justify-between">
+          <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+            Add an additional contact
+          </h3>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:bg-gray-100 cursor-pointer " fill="none" viewBox="0 0 24 24" stroke="currentColor" @click="closeContactModal">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
 
 
+        <div>
+          <!--4 starts-->
+        <div class=" pt-4">
+          <label for="id" class="block text-sm font-medium text-gray-700">ID            </label>
+          <div class="mt-1">
+              <input type="text"  name="id" id="id" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 4 ends-->
+
+       <!--5 starts-->
+       <div class=" pt-4">
+          <label for="firstName" class="block text-sm font-medium text-gray-700">First Name           </label>
+          <div class="mt-1">
+              <input type="text" x-model="firstName" name="firstName" id="firstName" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 5 ends-->
+
+      <!--6 starts-->
+      <div class="pt-4">
+          <label for="Phone" class="block text-sm font-medium text-gray-700">Last Name           </label>
+          <div class="mt-1">
+              <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+            </div>
+        </div>
+      <!-- 6 ends-->
+
+      <!--6 starts-->
+      <div class="pt-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Email ID           </label>
+        <div class="mt-1">
+            <input type="email" name="email" id="email" x-model="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+          </div>
+      </div>
+    <!-- 6 ends-->
+
+       <!--6 starts-->
+       <div class="pt-4">
+        <label for="Phone" class="block text-sm font-medium text-gray-700">Tag  </label>
+        <div class="mt-1">
+            <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+          </div>
+      </div>
+    <!-- 6 ends-->
+
+     <!--6 starts-->
+     <div class="pt-4">
+      <label for="Phone" class="block text-sm font-medium text-gray-700">Phone  </label>
+      <div class="mt-1">
+          <input type="text" name="phone" id="phone" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+        </div>
+    </div>
+  <!-- 6 ends-->
+
+  <!--7-->
+    <div class="pt-4">
+      <!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<fieldset class="space-y-5">
+  <legend class="sr-only">Notifications</legend>
+  <div class="relative flex items-start">
+    <div class="flex items-center h-5">
+      <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+    </div>
+    <div class="ml-3 text-sm">
+      <label for="comments" class="font-medium text-gray-700">Billing emails</label>
+      <p id="comments-description" class="text-gray-500">If checked, this contact will receive Invoice and Payment related emails</p>
+    </div>
+  </div>
+  <div class="relative flex items-start">
+    <div class="flex items-center h-5">
+      <input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+    </div>
+    <div class="ml-3 text-sm">
+      <label for="candidates" class="font-medium text-gray-700">Account emails</label>
+      <p id="candidates-description" class="text-gray-500">If checked, this contact will receive Invoice and Payment related emails</p>
+    </div>
+  </div>
+
+</fieldset>
+
+    </div>
+  <!--7 ends-->
+
+        </div>
+
+
+       
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-x-4">
+      
+        <button @click="addNewContact" type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Add
+        </button>
+        <button @click="closeContactModal"  type="button" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Dismiss
+       </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="./js/scrollspy.js"></script>
+<script>
+     
+
+
+      function appMainFunc() {
+        return {
+          contactModal: false,
+          languageOptions: false,
+          langaugeOptionSelected: 'Select Country',
+          languages: [
+                {id: 'en', lang:'English' },
+                {id: 'fr', lang:'French' }
+            ],
+          currencyOptions: false,
+          currencyOptionSelected: 'Select Currency',
+          additionalPop: false,
+          currencys: [
+            {id: 'inr', currency: 'India Ruppes'},
+            {id: 'usd', currency: 'US Dollar'},
+          ],
+          atTop: true,
+          addContacts: [
+           
+          ],
+
+          firstName: '',
+          email: '',
+
+          init(){
+            var menu = document.querySelector('.nav');
+            scrollSpy(menu, 5000);
+          },
+
+          closeContactModal() {
+              this.contactModal = false;
+            },
+
+            toggleLangVisibility() {
+              this.languageOptions = !this.languageOptions
+            },
+            toggleCurrencyVisibility(){
+              
+              this.currencyOptions = !this.currencyOptions
+              console.log(this.currencyOptions)
+            },
+
+            onSelectLang(lang){
+              this.languageOptions = false;
+              this.langaugeOptionSelected = lang;
+              //alert(lang)
+            },
+
+            onSelectCurrency(currency){
+              this.currencyOptions = false;
+              this.currencyOptionSelected = currency;
+              //alert(lang)
+            },
+
+            addNewContact(){
+              this.addContacts.push(
+                {
+                  id: "32123",
+                  name: this.firstName,
+                  email: this.email
+                }
+              );
+
+              console.log(this.addContacts[0])
+
+              this.closeContactModal()
+            }
+
+
+        }
+      }
+</script>
 </body>
 </html>
