@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-white">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./../css/style.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <title>Subscription</title>
+</head>
+<body class="h-full" x-data="subscriptionFunc()">
+   <!-- This example requires Tailwind CSS v2.0+ -->
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+<div>
+    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+    <div class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
+      <!--
+        Off-canvas menu overlay, show/hide based on off-canvas menu state.
+  
+        Entering: "transition-opacity ease-linear duration-300"
+          From: "opacity-0"
+          To: "opacity-100"
+        Leaving: "transition-opacity ease-linear duration-300"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+      <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
+  
+      <!--
+        Off-canvas menu, show/hide based on off-canvas menu state.
+  
+        Entering: "transition ease-in-out duration-300 transform"
+          From: "-translate-x-full"
+          To: "translate-x-0"
+        Leaving: "transition ease-in-out duration-300 transform"
+          From: "translate-x-0"
+          To: "-translate-x-full"
+      -->
+      <div class="relative flex-1 flex flex-col max-w-xs w-full bg-white">
+        <!--
+          Close button, show/hide based on off-canvas menu state.
+  
+          Entering: "ease-in-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in-out duration-300"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+        <div class="absolute top-0 right-0 -mr-12 pt-2">
+          <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <span class="sr-only">Close sidebar</span>
+            <!-- Heroicon name: outline/x -->
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+  
+        <div class="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+          <div class="flex-shrink-0 flex items-center px-4">
+            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg" alt="Workflow">
+          </div>
+          <nav class="mt-5 px-2 space-y-1">
+            <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+            <a href="#" class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <!--
+                Heroicon name: outline/home
+  
+                Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"
+              -->
+              <svg class="text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              Dashboard
+            </a>
+  
+            <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <!-- Heroicon name: outline/users -->
+              <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              Team
+            </a>
+  
+            <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <!-- Heroicon name: outline/folder -->
+              <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
+              Projects
+            </a>
+  
+            <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <!-- Heroicon name: outline/calendar -->
+              <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Calendar
+            </a>
+  
+            <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <!-- Heroicon name: outline/inbox -->
+              <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+              </svg>
+              Documents
+            </a>
+  
+            <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <!-- Heroicon name: outline/chart-bar -->
+              <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              Reports
+            </a>
+          </nav>
+        </div>
+        <div class="flex-shrink-0 flex border-t border-gray-200 p-4">
+          <a href="#" class="flex-shrink-0 group block">
+            <div class="flex items-center">
+              <div>
+                <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              </div>
+              <div class="ml-3">
+                <p class="text-base font-medium text-gray-700 group-hover:text-gray-900">
+                  Tom Cook
+                </p>
+                <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">
+                  View profile
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+  
+      <div class="flex-shrink-0 w-14">
+        <!-- Force sidebar to shrink to fit close icon -->
+      </div>
+    </div>
+  
+    <!-- Static sidebar for desktop -->
+    <div x-data="{leftNavAlt: false}" class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+
+        <div class="flex-1 flex flex-col bg-gray-300" x-show="leftNavAlt == true">
+            <div class="relative inline-block text-left">
+                <div>
+                  <button @click="leftNavAlt = !leftNavAlt" type="button" class="group w-full bg-gray-100  px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-purple-500" id="options-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <span class="flex w-full justify-between items-center">
+                      <span class="flex min-w-0 items-center justify-between space-x-3">
+                        <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="./../images/chargebee-icon.svg" alt="">
+                        <span class="flex-1 flex flex-col min-w-0">
+                          <span class="text-gray-900 text-sm font-medium truncate">Jessy Schwarz</span>
+                          <span class="text-gray-500 text-sm truncate">@jessyschwarz</span>
+                        </span>
+                      </span>
+                      <!-- Heroicon name: solid/selector -->
+                      <svg class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                </div>
+        </div>
+        
+      <!-- Sidebar component, swap this element with another sidebar if you like -->
+      <div class="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white " x-show="leftNavAlt == false">
+        <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+         
+
+          <div class="px-3 relative inline-block text-left">
+            <div>
+              <button @click="leftNavAlt = !leftNavAlt" type="button" class="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500" id="options-menu-button" aria-expanded="false" aria-haspopup="true">
+                <span class="flex w-full justify-between items-center">
+                  <span class="flex min-w-0 items-center justify-between space-x-3">
+                    <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="./../images/chargebee-icon.svg" alt="">
+                    <span class="flex-1 flex flex-col min-w-0">
+                      <span class="text-gray-900 text-sm font-medium truncate">Jessy Schwarz</span>
+                      <span class="text-gray-500 text-sm truncate">@jessyschwarz</span>
+                    </span>
+                  </span>
+                  <!-- Heroicon name: solid/selector -->
+                  <svg class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            </div>
+            <div class="p-2">
+            <div class="border px-2 rounded-md border-gray-200 flex">
+                <form class="w-full flex md:ml-0" action="#" method="GET">
+                  <label for="search-field" class="sr-only">Search</label>
+                  <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+                    <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                      <!-- Heroicon name: solid/search -->
+                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <input id="search-field" name="search-field" class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400 sm:text-sm" placeholder="Search" type="search">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <nav class="flex-1 px-2 bg-white" aria-label="Sidebar">
+
+
+
+
+
+                <div class=" pt-2">
+                  <a href="Get Started.html"
+                    class=" text-purple-700 hover:bg-purple-50 hover:text-purple-600 group w-full flex items-center pr-1 py-2 text-left text-sm  rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-1" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+    
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-purple-700 group-hover:text-purple-700 h-5 w-5 mr-3 ml-2" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    Get Started
+                  </a>
+                </div>
+    
+                <div>
+                  <a href="#"
+                    class="bg-gray-100 text-gray-900 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pr-1 py-2 text-left text-sm  rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-1" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+    
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-400 group-hover:text-gray-700 h-5 w-5 mr-3 ml-2" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                    </svg>
+    
+                    Home
+                  </a>
+                </div>
+    
+     <!-- divider with text -->
+     <div class="mt-4 mb-2 border-t border-gray-200">
+    
+    <div class="relative flex justify-start">
+    <span class=" pt-3 px-2 font-medium rounded-full uppercase text-xs text-gray-400">
+      {Label}
+    </span>
+    </div>
+    </div>
+    <!-- divider with text -->
+    
+    
+                <div x-data="{ open: false }" class="space-y-1">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-1 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-1" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-300 group-hover:text-gray-700 h-4 w-4 mr-3 ml-2" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1">
+                      Product Catalog
+                    </span>
+                    <!-- <svg class="ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-300"
+                                viewBox="0 0 20 20" x-state:on="Expanded" x-state:off="Collapsed"
+                                aria-hidden="true"
+                                :class="{ 'text-gray-400 rotate-90': open, 'text-gray-300': !(open) }">
+                                <path d="M6 6L14 10L6 14V6Z" fill="currentColor"></path>
+                            </svg> -->
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+    
+    
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-1"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Product Family
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Plans
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Addons
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Charges
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Coupons
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Coupon Sets
+                    </a>
+    
+                  </div>
+                </div>
+    
+    
+                <div x-data="{ open: false }" class="space-y-1">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center  pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-2" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-300 group-hover:text-gray-700 h-5 w-5 mr-3 ml-2" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1">
+                      Records
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-2"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Customers
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Subscriptions
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Invoices
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Credit Notes
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Quotes
+                    </a>
+    
+                  </div>
+                </div>
+    
+                <div x-data="{ open: false }" class="space-y-1">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-2" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+    
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-300 group-hover:text-gray-700 h-5 w-5 mr-3" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                      <path fill-rule="evenodd"
+                        d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1 ">
+                      Logs
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-2"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Transactions
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Emails
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Events
+                    </a>
+    
+    
+    
+                  </div>
+                </div>
+    
+    
+    
+                 <!-- divider with text -->
+                <div class="mt-4 mb-2 border-t border-gray-200">
+    
+              <div class="relative flex justify-start">
+                <span class="pt-3 pb-2 px-2 font-medium rounded-full uppercase text-xs text-gray-400">
+                 (Label)
+                </span>
+              </div>
+                <!-- divider with text -->
+    
+                <div x-data="{ open: false }" class="">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-3" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+    
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-300 group-hover:text-gray-700 h-5 w-5 mr-3" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm9 4a1 1 0 10-2 0v6a1 1 0 102 0V7zm-3 2a1 1 0 10-2 0v4a1 1 0 102 0V9zm-3 3a1 1 0 10-2 0v1a1 1 0 102 0v-1z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1">
+                      Analytics
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-3"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Data Dashboard
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Metric Explorer
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Customer Insights
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Accounting Reports
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Alerts & Goals
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Report Builder
+                    </a>
+    
+                  </div>
+                </div>
+    
+                <div x-data="{ open: false }" class="">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-4" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-300 group-hover:text-gray-700 h-5 w-5 mr-3" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                    </svg>
+                    <span class="flex-1">
+                      Checkout
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-4"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Branding
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Fields
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Lables
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Integrate with Chargebee
+                    </a>
+    
+                  </div>
+                </div>
+    
+                <!--second border-->
+                <!-- <div class="px-2 border border-gray-100">
+                    </div> -->
+    
+                <div x-data="{ open: false }" class="">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-3 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-4" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+    
+                    <svg class="fill-current text-gray-300 group-hover:text-gray-700 h-4 w-4 mr-3" viewBox="0 0 17 13"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.46779 1.00918L4.83028 3.83671L7.82604 0.311589C7.90993 0.21304 8.01599 0.133846 8.13635 0.0799063C8.2567 0.0259664 8.38824 -0.00133007 8.52116 4.98289e-05C8.65408 0.00142973 8.78497 0.0314506 8.90407 0.0878763C9.02316 0.144302 9.12741 0.225679 9.20904 0.325946L12.0678 3.83587L15.539 0.967799C15.6753 0.855398 15.8443 0.785471 16.0233 0.767374C16.2024 0.749277 16.3829 0.783875 16.5408 0.866537C16.6987 0.949199 16.8265 1.07598 16.9069 1.22991C16.9873 1.38385 17.0167 1.55759 16.9909 1.72789L15.6654 10.4664H1.35556L0.0096757 1.76758C-0.0170588 1.59634 0.0119246 1.42138 0.0927002 1.2664C0.173476 1.11143 0.30214 0.983921 0.461267 0.901155C0.620393 0.818389 0.802293 0.784364 0.982328 0.803686C1.16236 0.823009 1.33183 0.894746 1.46779 1.00918ZM1.42449 11.3109H15.5638V12.1555C15.5638 12.3794 15.4706 12.5943 15.3049 12.7526C15.1392 12.911 14.9144 13 14.68 13H2.30819C2.07382 13 1.84904 12.911 1.68332 12.7526C1.51759 12.5943 1.42449 12.3794 1.42449 12.1555V11.3109Z" />
+                    </svg>
+                    <span class="flex-1">
+                      Entitlements
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-4"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Features
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      ???
+                    </a>
+    
+                  </div>
+                </div>
+    
+                <!--third border-->
+                <!-- <div class="px-2 border border-gray-100">
+                  </div> -->
+    
+                <div x-data="{ open: false }" class="">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-5" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-300 group-hover:text-gray-700 h-5 w-5 mr-3" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path
+                        d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
+                    </svg>
+                    <span class="flex-1">
+                      Marketplace
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-5"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Overview
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Integrations
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Developer's zone
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Settings
+                    </a>
+    
+                  </div>
+                </div>
+    
+    
+    
+                <!--for settings-->
+                <div class="mt-4 mb-2 border-t border-gray-200">
+                </div>
+    
+    
+    
+                <div x-data="{ open: false }" class="space-y-1 pt-1">
+                  <button type="button"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:text-gray-900"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-5" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+                    <svg class="fill-current text-gray-300 group-hover:text-gray-700 h-5 w-5 mr-3 ml-0.5"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.665 6.79c.513 0 .953.378 1.024.879.06.414.089.823.089 1.22 0 .396-.031.805-.09 1.22-.07.5-.51.878-1.023.878h-1.524c-.024.286-.163.62-.325.936l1.057.983c.364.362.407.943.1 1.35a8.93 8.93 0 01-1.717 1.716 1.034 1.034 0 01-1.35-.099l-1.08-1.08c-.216.184-.549.321-.891.433l.052 1.441c0 .513-.378.953-.879 1.022a8.78 8.78 0 01-1.22.09c-.398 0-.808-.032-1.218-.09-.503-.07-.88-.51-.88-1.022v-1.526c-.285-.024-.618-.161-.937-.324l-.982 1.056a1.032 1.032 0 01-1.35.1 8.967 8.967 0 01-1.717-1.718 1.032 1.032 0 01.1-1.35l1.08-1.08c-.185-.217-.323-.55-.433-.89l-1.44.052c-.512 0-.952-.378-1.024-.879a8.574 8.574 0 010-2.44c.072-.5.512-.878 1.024-.878h1.526c.022-.284.16-.618.323-.936L1.905 4.87a1.034 1.034 0 01-.1-1.35A8.934 8.934 0 013.52 1.806a1.038 1.038 0 011.352.1l1.078 1.08c.218-.185.55-.324.892-.434l-.053-1.44c0-.512.377-.952.878-1.023a8.522 8.522 0 012.44 0c.502.07.879.51.879 1.023v1.525c.29.027.623.164.936.324l.982-1.056a1.036 1.036 0 011.35-.1 8.914 8.914 0 011.717 1.72 1.03 1.03 0 01-.1 1.347l-1.08 1.08c.186.218.324.552.433.89l1.44-.051zM8.89 12.405a3.519 3.519 0 003.515-3.516c0-.937-.365-1.82-1.03-2.486a3.492 3.492 0 00-2.485-1.03 3.521 3.521 0 00-3.517 3.516c0 .938.366 1.821 1.03 2.485a3.496 3.496 0 002.487 1.03z" />
+                    </svg>
+                    <span class="flex-1">
+                      Settings
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="ml-3 mr-2 flex-shrink-0 h-3.5 w-3.5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150 text-gray-400"
+                      fill="none" viewBox="0 0 20 20" stroke="currentColor" x-state:on="Expanded" x-state:off="Collapsed"
+                      :class="{ 'text-gray-400 rotate-180': open, 'text-gray-300': !(open) }">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div x-description="Expandable link section, show/hide based on state." class="ml-9 pb-4 text-sm font-light text-gray-500" id="sub-menu-5"
+                    x-show="open" style="display: none;">
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Configure Chargebee
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Notifications
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Import & Export Data
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Team Members
+                    </a>
+    
+                    <a href="#"
+                      class="group w-full flex items-center p-1 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                      Security
+                    </a>
+    
+                  </div>
+                </div>
+    
+    
+                <div class=""></div>
+                <!--fourth border-->
+                <!-- <div class=" px-6 border  border-gray-100">
+                </div> -->
+    
+                <div>
+                  <a href="#"
+                    class="bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-1 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-1" @click="open = !open"
+                    aria-expanded="false" x-bind:aria-expanded="open.toString()"
+                    x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;bg-white text-gray-500 hover:bg-gray-50 hover:text-gray-900&quot;">
+    
+    
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-300 group-hover:text-gray-700 h-5 w-5 mr-3 ml-1" viewBox="0 0 20 20"
+                      fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        clip-rule="evenodd" />
+                    </svg>
+    
+                    Need help?
+                  </a>
+                </div>
+    
+    
+    
+    
+    
+    
+              </nav>
+        </div>
+        <div class="flex-shrink-0 flex border-t border-gray-200 p-4">
+          <a href="#" class="flex-shrink-0 w-full group block">
+            <div class="flex items-center">
+              <div>
+                <img class="inline-block h-9 w-9 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              </div>
+              <div class="ml-3">
+                <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                  Tom Cook
+                </p>
+                <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">
+                  View profile
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+
+
+    <!--right-->
+    <div class="lg:pl-64 flex flex-col">
+        <!-- Search header -->
+        <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
+          <!-- Sidebar toggle, controls the 'sidebarOpen' sidebar state. -->
+          <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 lg:hidden">
+            <span class="sr-only">Open sidebar</span>
+            <!-- Heroicon name: outline/menu-alt-1 -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </button>
+          <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex-1 flex">
+              <form class="w-full flex md:ml-0" action="#" method="GET">
+                <label for="search-field" class="sr-only">Search</label>
+                <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+                  <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                    <!-- Heroicon name: solid/search -->
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <input id="search-field" name="search-field" class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400 sm:text-sm" placeholder="Search" type="search">
+                </div>
+              </form>
+            </div>
+            <div class="flex items-center">
+              <!-- Profile dropdown -->
+              <div class="ml-3 relative">
+                <div>
+                  <button type="button" class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  </button>
+                </div>
+    
+                <!--
+                  Dropdown menu, show/hide based on menu state.
+    
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                  <div class="py-1" role="none">
+                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="user-menu-item-0">View profile</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="user-menu-item-2">Notifications</a>
+                  </div>
+                  <div class="py-1" role="none">
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="user-menu-item-3">Get desktop app</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="user-menu-item-4">Support</a>
+                  </div>
+                  <div class="py-1" role="none">
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="user-menu-item-5">Logout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <main class="flex-1">
+          <!-- Page title & actions -->
+          <div class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
+            <div class="flex-1 min-w-0">
+              <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
+                Home
+              </h1>
+            </div>
+            <div class="mt-4 flex sm:mt-0 sm:ml-4">
+              <button type="button" class="order-1 ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-0 sm:ml-0">
+                Import Subscription
+              </button>
+              <button @click="pickModal = true" type="button" class="order-0 inline-flex gap-x-2 items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                Create Subscription
+              </button>
+            </div>
+          </div>
+          <!-- Pinned projects -->
+          <div class="px-4 mt-6 sm:px-6 lg:px-8">
+            <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">Pinned Projects</h2>
+            <ul role="list" class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-4 mt-3">
+              <li class="relative col-span-1 flex shadow-sm rounded-md">
+                <div class="flex-shrink-0 flex items-center justify-center w-16 bg-pink-600 text-white text-sm font-medium rounded-l-md">
+                  GA
+                </div>
+                <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
+                  <div class="flex-1 px-4 py-2 text-sm truncate">
+                    <a href="#" class="text-gray-900 font-medium hover:text-gray-600">
+                      GraphQL API
+                    </a>
+                    <p class="text-gray-500">12 Members</p>
+                  </div>
+                  <div class="flex-shrink-0 pr-2">
+                    <button type="button" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" id="pinned-project-options-menu-0-button" aria-expanded="false" aria-haspopup="true">
+                      <span class="sr-only">Open options</span>
+                      <!-- Heroicon name: solid/dots-vertical -->
+                      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                      </svg>
+                    </button>
+    
+                    <!--
+                      Dropdown menu, show/hide based on menu state.
+    
+                      Entering: "transition ease-out duration-100"
+                        From: "transform opacity-0 scale-95"
+                        To: "transform opacity-100 scale-100"
+                      Leaving: "transition ease-in duration-75"
+                        From: "transform opacity-100 scale-100"
+                        To: "transform opacity-0 scale-95"
+                    -->
+                    <div class="z-10 mx-3 origin-top-right absolute right-10 top-3 w-48 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="pinned-project-options-menu-0-button" tabindex="-1">
+                      <div class="py-1" role="none">
+                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="pinned-project-options-menu-0-item-0">View</a>
+                      </div>
+                      <div class="py-1" role="none">
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="pinned-project-options-menu-0-item-1">Removed from pinned</a>
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="pinned-project-options-menu-0-item-2">Share</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+    
+              <!-- More items... -->
+            </ul>
+          </div>
+    
+          <!-- Projects list (only on smallest breakpoint) -->
+          <div class="mt-10 sm:hidden">
+            <div class="px-4 sm:px-6">
+              <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">Projects</h2>
+            </div>
+            <ul role="list" class="mt-3 border-t border-gray-200 divide-y divide-gray-100">
+              <li>
+                <a href="#" class="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6">
+                  <span class="flex items-center truncate space-x-3">
+                    <span class="w-2.5 h-2.5 flex-shrink-0 rounded-full bg-pink-600" aria-hidden="true"></span>
+                    <span class="font-medium truncate text-sm leading-6">
+                      GraphQL API
+                      <span class="truncate font-normal text-gray-500">in Engineering</span>
+                    </span>
+                  </span>
+                  <!-- Heroicon name: solid/chevron-right -->
+                  <svg class="ml-4 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </li>
+    
+              <!-- More projects... -->
+            </ul>
+          </div>
+    
+          <!-- Projects table (small breakpoint and up) -->
+          <div class="hidden mt-8 sm:block">
+            <div class="align-middle inline-block min-w-full border-b border-gray-200">
+              <table class="min-w-full">
+                <thead>
+                  <tr class="border-t border-gray-200">
+                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <span class="lg:pl-2">Project</span>
+                    </th>
+                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Members
+                    </th>
+                    <th class="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Last updated 
+                    </th>
+                    <th class="pr-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-100">
+                  <tr>
+                    <td class="px-6 py-3 max-w-0 w-full whitespace-nowrap text-sm font-medium text-gray-900">
+                      <div class="flex items-center space-x-3 lg:pl-2">
+                        <div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" aria-hidden="true"></div>
+                        <a href="#" class="truncate hover:text-gray-600">
+                          <span>
+                            GraphQL API
+                            <span class="text-gray-500 font-normal">in Engineering</span>
+                          </span>
+                        </a>
+                      </div>
+                    </td>
+                    <td class="px-6 py-3 text-sm text-gray-500 font-medium">
+                      <div class="flex items-center space-x-2">
+                        <div class="flex flex-shrink-0 -space-x-1">
+                          <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Dries Vincent">
+    
+                          <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Lindsay Walton">
+    
+                          <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Courtney Henry">
+    
+                          <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Tom Cook">
+                        </div>
+    
+                        <span class="flex-shrink-0 text-xs leading-5 font-medium">+8</span>
+                      </div>
+                    </td>
+                    <td class="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-right">
+                      March 17, 2020
+                    </td>
+                    <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
+                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                    </td>
+                  </tr>
+    
+                  <!-- More projects... -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    <!--right-->
+
+  </div>
+
+
+  <!--Pick a customer-->
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="fixed z-30 inset-0 overflow-y-auto" aria-labelledby="modal-title"  x-show="pickModal" role="dialog" aria-modal="true" 
+x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+>
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0" 
+  
+>
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" ></div>
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full " 
+    
+    @click.away="closePickModal">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
+        <div class="md:flex md:items-center md:justify-between">
+        <div>
+          <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+            Pick a customer
+          </h3>
+          <p class="mt-1 text-sm text-gray-500">Choose the customer you’re creating the subscription for.</p>
+        </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:bg-gray-100 cursor-pointer " fill="none" viewBox="0 0 24 24" stroke="currentColor" @click="closePickModal">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+
+
+        <div>
+          <!--4 starts-->
+          <div class="py-6 ">
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <!-- Heroicon name: solid/mail -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <input type="text" name="search" id="search" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" placeholder="Search for ID / Name / Company">
+            </div>
+          </div>
+      <!-- 4 ends-->
+
+      <!--list starts-->
+      <div>
+        <div class=" mt-6">
+          <ul role="list" class="-my-5 divide-y divide-gray-200">
+            <template x-for="customer in customers" :key="customer.id">
+
+              <li class="py-3">
+                <div class="relative focus-within:ring-2 focus-within:ring-indigo-500">
+                  <h3 class="text-sm font-semibold text-gray-800">
+                    <a href="./create-subscription.html" class="hover:underline focus:outline-none">
+                      <!-- Extend touch target to entire panel -->
+                      <span class="absolute inset-0" aria-hidden="true"></span>
+                      <span x-text="customer.name"></span>
+                    </a>
+                  </h3>
+                  <p class="mt-1 text-sm text-gray-600 " x-text="customer.email">
+                 </p>
+                </div>
+              </li>
+
+            </template>
+            
+      
+           
+      
+            
+          </ul>
+        </div>
+        
+        <div class="mt-6">
+          <a href="./../create-customer.html" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+            Create Customer
+          </a>
+        </div>
+      </div>
+      <!--list ends -->
+     
+
+      
+
+   
+
+        </div>
+
+
+       
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  function subscriptionFunc() {
+    return {
+      pickModal: false,
+      customers: [],
+
+      init() {
+        this.customers = [
+          { id:"cust1", name: "Iselectrics", email: "tyler_AT_test.com@example.com"},
+          { id:"cust2", name: "Goodsilron Ltd", email: "carol_AT_test.com@example.com"},
+          { id:"cust3", name: "Zencorporation", email: "richard_AT_test.com@example.com"},
+          { id:"cust4", name: "Openlane Ltd", email: "simon_AT_test.com@example.com"},
+        ];
+      },
+
+      closePickModal() {
+        this.pickModal = false;
+      }
+    }
+  } 
+</script>
+  
+</body>
+</html>
