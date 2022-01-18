@@ -47,4 +47,7 @@
       [x-cloak] {
         display: none;
     }
+    .h-102 {
+        height: 584px;
+    }
 }
