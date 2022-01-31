@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a subscription</title>
-    <link href="/dist/css/style.css" rel="stylesheet">
+    <link href="./../css/style.css" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
 
@@ -20,7 +20,7 @@
         <a href="./index.html" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Dismiss
         </a>
-          <button type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Create
           </button>
     </div>
@@ -32,7 +32,14 @@
         
             <div class="">
                 <!-- <div class="text-base font-medium text-gray-700">Create a Customer<br>🔑 </div> -->
-                <div class="text-2xl  text-black font-semibold">Create a subscription</div>
+                <div class="text-2xl  text-black font-regular flex gap-x-2 items-center">
+                  <div class="">Create a subscription for <span class="font-bold">John Appleseed</div></span>
+                  <a  class=" underline gap-x-3 items-center leading-4   text-xs  font-medium rounded-md text-indigo-600  cursor-pointer">
+                    <!-- Heroicon name: solid/mail -->
+                  
+                    Change
+                  </a>
+                </div>
             </div>
         </div>
 
@@ -62,7 +69,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <span class="truncate">
-            Subscription  Info
+            Products
           </span>
         </a>
   
@@ -118,16 +125,15 @@
 <form action="#" method="POST" id="create_subscription">
     <div class="shadow sm:rounded-md sm:overflow-hidden">
     <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
-        <div class="flex items-center gap-x-4">
+        <!-- <div class="flex items-center gap-x-4">
      
   <button type="button" class="inline-flex gap-x-3 items-center px-3 py-2 border shadow-sm text-sm leading-4 font-medium rounded-md text-indigo-600 border-indigo-600 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-  <!-- Heroicon name: solid/mail -->
   <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
   </svg>
   Jay
   </button>
-        </div>
+        </div> -->
   
         <div class="grid grid-cols-6 gap-6">
   
@@ -199,7 +205,7 @@
                     <div class="flex flex-col">
                         <div class="-my-2 overflow sm:-mx-6 lg:-mx-8">
                           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="shadow  border-b border-gray-200 sm:rounded-lg">
+                            <div class="  border border-gray-200 sm:rounded-lg">
                               <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
                                   <tr>
@@ -368,7 +374,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            Add Recurring Addon
+                            Recurring Addon
                         </button>
 
                         <button type="button" @click="chargesModal = true" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-500 bg-gray-50 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -376,7 +382,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          Add Charge
+                           Charge
                       </button>
 
                       <button type="button" @click="addPlanModal = true" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-500 bg-gray-50 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -384,7 +390,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        Add Coupon
+                         Coupon
                     </button>
 
                     <button type="button" @click="addPlanModal = true" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-500 bg-gray-50 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -392,7 +398,7 @@
                       <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Add Coupon Code
+                       Coupon Code
                   </button>
                     </div>
                   </div>
@@ -864,7 +870,7 @@
             <!--inner right form end------------------->
 
             <!--inner right dynamic card------------------->
-            <div class="lg:col-span-4  ">
+            <div class="lg:col-span-4 lg:pl-2 xl:pl-10 2xl:pl-0   ">
                 <div x-show="planCard === true">
                     <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
                         <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Active</h2>
@@ -1003,7 +1009,6 @@
 <!--add plan-->
 
 <div class="fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title"  x-show="addPlanModal" role="dialog" aria-modal="true" 
-x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
 >
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
     <!--
@@ -1223,7 +1228,7 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
         <div class="h-14">
         <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-x-4" x-show="planStep2 === true">
       
-            <button @click="addPlanToTable" type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button @click="addPlanToTable" type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Add
             </button>
             <button @click="closeContactModal"  type="button" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -1241,7 +1246,6 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
 <!--add Recurring plan-->
 
 <div class="fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title"  x-show="recurringPlanModal === true" role="dialog" aria-modal="true" 
-x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
 >
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
     <!--
@@ -1396,7 +1400,7 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
         <div class="h-14">
         <div class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-x-4" x-show="recurringPlanStep2 === true">
       
-            <button @click="addRecurringPlanToTable" type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button @click="addRecurringPlanToTable" type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Add
             </button>
             <button @click="recurringPlanModal = false"  type="button" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -1415,7 +1419,6 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
 
 <!--see breakdown-->
 <div class="fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title"  x-show="breakdownModal === true" role="dialog" aria-modal="true" 
-x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
 >
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
     <!--
@@ -1446,11 +1449,11 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
     <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl  transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full w-full " 
     
     @click.away="breakdownModal = false">
-      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
+      <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
         <div class="md:flex md:items-center md:justify-between">
             <div class="flex">
                
-                  <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title" \ >
+                  <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title"  >
                     Breakdown of Immediate Charges
                 </h3>
             </div>
@@ -1461,7 +1464,7 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
         </div>
 
 
-        <div class=" h-96 overflow-y-auto py-8">
+        <div class="  py-8">
            
           <div class="rounded-md bg-yellow-50 p-4">
             <div class="flex">
@@ -1585,7 +1588,6 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
 
 <!--add chareges-->
 <div class="fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title"  x-show="chargesModal === true" role="dialog" aria-modal="true" 
-x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
 >
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
     <!--
@@ -1778,7 +1780,7 @@ x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 s
         <div class="h-14">
         <div class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-x-4" >
       
-            <button @click="onSetupChargesAdd()" type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-900 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button @click="onSetupChargesAdd()" type="button" class="inline-flex items-center px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Add
             </button>
             <button @click="chargesModal = false"  type="button" class="inline-flex items-center px-8 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

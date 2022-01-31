@@ -1,7 +1,11 @@
+const tailwindcss = require("tailwindcss");
+
 module.exports = {
   content: ["./dist/*.{html,js}", "./dist/**/*.html"],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
